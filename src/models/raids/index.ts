@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import { z } from 'zod';
 
 export const RaidSchema = z.object({
-  date: z.date(),
+  date: z.coerce.date(),
   platform: z.string(),
   url: z.string().url(),
   shareMessage: z.string(),
