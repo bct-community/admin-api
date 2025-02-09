@@ -4,6 +4,7 @@ import * as s from '@/services/links/createLink.js';
 import { endResponseWithCode, internalServerError } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 import { LinkSchema } from '@/models/links/index.js';
+import { linksCache } from '@/controllers/links/getLinks.js';
 
 const bodySchema = LinkSchema.omit({ _id: true });
 
@@ -24,6 +25,8 @@ const createLink = async (req: Request, res: Response) => {
 
   try {
     await s.create({ icon, label, type, url });
+
+    linksCache.del('linksData');
 
     return endResponseWithCode(res, 200);
   } catch (error) {

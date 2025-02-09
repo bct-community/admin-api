@@ -7,6 +7,7 @@ import {
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 import { LinkSchema } from '@/models/links/index.js';
+import { linksCache } from '@/controllers/links/getLinks.js';
 
 const bodySchema = LinkSchema.omit({ _id: true });
 
@@ -48,6 +49,8 @@ const updateLink = async (req: Request, res: Response) => {
 
       return notFound(res);
     }
+
+    linksCache.del('linksData');
 
     return endResponseWithCode(res, 200);
   } catch (error) {

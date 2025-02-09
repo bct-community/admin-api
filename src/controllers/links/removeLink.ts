@@ -7,6 +7,7 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
+import { linksCache } from '@/controllers/links/getLinks.js';
 
 const removeLink = async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -33,6 +34,8 @@ const removeLink = async (req: Request, res: Response) => {
 
       return notFound(res);
     }
+
+    linksCache.del('linksData');
 
     return endResponseWithCode(res, 200);
   } catch (error) {

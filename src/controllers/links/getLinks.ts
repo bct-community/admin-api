@@ -8,7 +8,7 @@ import { internalServerError, notFound, sendJson } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 
 const linksTTL = getEndOfDayTTL();
-const linksCache = new NodeCache({ stdTTL: linksTTL });
+export const linksCache = new NodeCache({ stdTTL: linksTTL });
 
 const getLinks = async (_req: Request, res: Response) => {
   const cacheKey = 'linksData';
