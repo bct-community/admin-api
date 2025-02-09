@@ -1,9 +1,9 @@
 import { type Request, type Response } from 'express';
 
+import { AuthSchema } from '@/models/auth/index.js';
 import * as s from '@/services/auth/index.js';
 import { endResponseWithCode, internalServerError } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { AuthSchema } from '@/models/auth/index.js';
 
 const bodySchema = AuthSchema.omit({ _id: true });
 

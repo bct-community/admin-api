@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
 import {
-  getRaids,
   createRaid,
-  updateRaid,
+  getRaids,
   removeRaid,
+  updateRaid,
 } from '@/controllers/raids/index.js';
 
 const router = Router();

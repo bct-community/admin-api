@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { getArts, updateArt, removeArt } from '@/controllers/arts/index.js';
+
+import { getArts, removeArt, updateArt } from '@/controllers/arts/index.js';
 
 const router = Router();
 

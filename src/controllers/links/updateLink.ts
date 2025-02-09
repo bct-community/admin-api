@@ -1,4 +1,7 @@
 import { type Request, type Response } from 'express';
+
+import { linksCache } from '@/controllers/links/getLinks.js';
+import { LinkSchema } from '@/models/links/index.js';
 import * as s from '@/services/links/updateLink.js';
 import {
   endResponseWithCode,
@@ -6,8 +9,6 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { LinkSchema } from '@/models/links/index.js';
-import { linksCache } from '@/controllers/links/getLinks.js';
 
 const bodySchema = LinkSchema.omit({ _id: true });
 

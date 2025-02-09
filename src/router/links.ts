@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
 import {
-  getLinks,
   createLink,
-  updateLink,
+  getLinks,
   removeLink,
+  updateLink,
 } from '@/controllers/links/index.js';
 
 const router = Router();

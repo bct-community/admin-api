@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import { authRoutes } from './auth.js';
 import { artsRoutes } from './arts.js';
+import { authRoutes } from './auth.js';
 import { linksRoutes } from './links.js';
 import { raidsRoutes } from './raids.js';
 

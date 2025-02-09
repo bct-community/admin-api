@@ -1,5 +1,6 @@
 import { type Request, type Response } from 'express';
 
+import { linksCache } from '@/controllers/links/getLinks.js';
 import * as s from '@/services/links/removeLink.js';
 import {
   endResponseWithCode,
@@ -7,7 +8,6 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { linksCache } from '@/controllers/links/getLinks.js';
 
 const removeLink = async (req: Request, res: Response) => {
   const { id } = req.params;

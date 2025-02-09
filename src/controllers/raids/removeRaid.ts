@@ -1,5 +1,6 @@
 import { type Request, type Response } from 'express';
 
+import { raidCache } from '@/controllers/raids/getRaids.js';
 import * as s from '@/services/raids/removeRaid.js';
 import {
   endResponseWithCode,
@@ -7,7 +8,6 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { raidCache } from '@/controllers/raids/getRaids.js';
 
 const removeRaid = async (req: Request, res: Response) => {
   const { id } = req.params;

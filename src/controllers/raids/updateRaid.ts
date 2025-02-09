@@ -1,5 +1,7 @@
 import { type Request, type Response } from 'express';
 
+import { raidCache } from '@/controllers/raids/getRaids.js';
+import { RaidSchema } from '@/models/raids/index.js';
 import * as s from '@/services/raids/updateRaid.js';
 import {
   endResponseWithCode,
@@ -7,8 +9,6 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { RaidSchema } from '@/models/raids/index.js';
-import { raidCache } from '@/controllers/raids/getRaids.js';
 
 const updateRaid = async (req: Request, res: Response) => {
   const { id } = req.params;

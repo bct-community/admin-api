@@ -1,5 +1,6 @@
 import { type Request, type Response } from 'express';
 
+import { artsCache } from '@/controllers/arts/getArts.js';
 import * as s from '@/services/arts/removeArt.js';
 import {
   endResponseWithCode,
@@ -7,7 +8,6 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { artsCache } from '@/controllers/arts/getArts.js';
 
 const removeArt = async (req: Request, res: Response) => {
   const { id } = req.params;

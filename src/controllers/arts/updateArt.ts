@@ -1,4 +1,7 @@
 import { type Request, type Response } from 'express';
+
+import { artsCache } from '@/controllers/arts/getArts.js';
+import { ArtsSchema } from '@/models/arts/index.js';
 import * as s from '@/services/arts/updateArt.js';
 import {
   endResponseWithCode,
@@ -6,8 +9,6 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
-import { ArtsSchema } from '@/models/arts/index.js';
-import { artsCache } from '@/controllers/arts/getArts.js';
 
 const bodySchema = ArtsSchema.element.omit({ _id: true });
 

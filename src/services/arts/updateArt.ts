@@ -1,4 +1,4 @@
-import { ArtsModel, type Art } from '@/models/arts/index.js';
+import { type Art, ArtsModel } from '@/models/arts/index.js';
 
 const update = async (
   id: string,
