@@ -23,7 +23,7 @@ const removeRaid = async (req: Request, res: Response) => {
   }
 
   try {
-    const deletedRaid = await s.remove(id);
+    const deletedRaid = await s.remove({ id });
 
     if (!deletedRaid) {
       logError({
