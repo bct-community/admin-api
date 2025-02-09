@@ -11,6 +11,10 @@ export const RaidSchema = z.object({
 
 export type Raid = z.infer<typeof RaidSchema>;
 
+export const RaidsSchema = z.array(RaidSchema);
+
+export type Raids = z.infer<typeof RaidsSchema>;
+
 const raidSchema = new Schema<Raid>({
   date: { type: Date, required: true },
   platform: { type: String, required: true },
