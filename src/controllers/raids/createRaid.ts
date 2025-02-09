@@ -6,8 +6,10 @@ import * as s from '@/services/raids/createRaid.js';
 import { endResponseWithCode, internalServerError } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 
+const bodySchema = RaidSchema.omit({ _id: true });
+
 const createRaid = async (req: Request, res: Response) => {
-  const result = RaidSchema.safeParse(req.body);
+  const result = bodySchema.safeParse(req.body);
 
   if (!result.success) {
     logError({

@@ -35,7 +35,7 @@ const removeRaid = async (req: Request, res: Response) => {
       return notFound(res);
     }
 
-    raidCache.del('raidData');
+    raidCache.del('raidsData');
 
     return endResponseWithCode(res, 200);
   } catch (error) {

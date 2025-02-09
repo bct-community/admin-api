@@ -1,7 +1,8 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Types } from 'mongoose';
 import { z } from 'zod';
 
 export const RaidSchema = z.object({
+  _id: z.custom<Types.ObjectId>(),
   date: z.coerce.date(),
   platform: z.string(),
   url: z.string().url(),
