@@ -23,13 +23,13 @@ const removeRaid = async (req: Request, res: Response) => {
   }
 
   try {
-    const deletedRaid = await s.remove({ id });
+    const removed = await s.remove({ id });
 
-    if (!deletedRaid) {
+    if (!removed) {
       logError({
         type: 'not-found',
         controller: 'removeRaid',
-        error: `Raid com ID ${id} não encontrada.`,
+        error: `Raid with ID ${id} not found`,
       });
 
       return notFound(res);

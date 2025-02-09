@@ -10,9 +10,9 @@ const remove = async ({ id }: { id: string }) => {
 
   await cloudinaryConnection.uploader.destroy(artName);
 
-  await ArtsModel.findByIdAndDelete(id).exec();
+  const removed = await ArtsModel.findByIdAndDelete(id).exec();
 
-  return true;
+  return removed !== null;
 };
 
 export { remove };

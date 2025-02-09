@@ -1,4 +1,5 @@
 import { type Request, type Response } from 'express';
+
 import * as s from '@/services/arts/removeArt.js';
 import {
   endResponseWithCode,
