@@ -35,7 +35,10 @@ const removeArt = async (req: Request, res: Response) => {
       return notFound(res);
     }
 
-    artsCache.del('artsData');
+    const cacheKeys = artsCache
+      .keys()
+      .filter((key) => key.startsWith('artsData-page-'));
+    artsCache.del(cacheKeys);
 
     return endResponseWithCode(res, 200);
   } catch (error) {

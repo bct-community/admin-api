@@ -10,7 +10,7 @@ import {
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 
-const bodySchema = ArtsSchema.element.omit({ _id: true });
+const bodySchema = ArtsSchema.element.pick({ approved: true });
 
 const updateArt = async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -49,7 +49,10 @@ const updateArt = async (req: Request, res: Response) => {
       return notFound(res);
     }
 
-    artsCache.del('artsData');
+    const cacheKeys = artsCache
+      .keys()
+      .filter((key) => key.startsWith('artsData-page-'));
+    artsCache.del(cacheKeys);
 
     return endResponseWithCode(res, 200);
   } catch (error) {

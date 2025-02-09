@@ -2,7 +2,7 @@ import { type Art, ArtsModel } from '@/models/arts/index.js';
 
 const update = async (
   id: string,
-  data: Partial<Omit<Art, '_id'>>
+  data: Pick<Art, 'approved'>
 ): Promise<boolean> => {
   const result = await ArtsModel.findByIdAndUpdate(id, data).exec();
   return result !== null;
