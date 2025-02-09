@@ -7,6 +7,7 @@ import {
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 import { ArtsSchema } from '@/models/arts/index.js';
+import { artsCache } from '@/controllers/arts/getArts.js';
 
 const bodySchema = ArtsSchema.element.omit({ _id: true });
 
@@ -46,6 +47,8 @@ const updateArt = async (req: Request, res: Response) => {
 
       return notFound(res);
     }
+
+    artsCache.del('artsData');
 
     return endResponseWithCode(res, 200);
   } catch (error) {

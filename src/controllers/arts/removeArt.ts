@@ -7,6 +7,7 @@ import {
   notFound,
 } from '@/utils/http.js';
 import logError from '@/utils/logError.js';
+import { artsCache } from '@/controllers/arts/getArts.js';
 
 const removeArt = async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -33,6 +34,8 @@ const removeArt = async (req: Request, res: Response) => {
 
       return notFound(res);
     }
+
+    artsCache.del('artsData');
 
     return endResponseWithCode(res, 200);
   } catch (error) {

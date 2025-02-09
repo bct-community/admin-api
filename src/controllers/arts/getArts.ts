@@ -13,7 +13,7 @@ import {
 import logError from '@/utils/logError.js';
 
 const artsTTL = getEndOfDayTTL();
-const artsCache = new NodeCache({ stdTTL: artsTTL });
+export const artsCache = new NodeCache({ stdTTL: artsTTL });
 
 const getArts = async (req: Request, res: Response) => {
   const { page } = req.query;
