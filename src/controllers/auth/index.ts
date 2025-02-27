@@ -2,7 +2,11 @@ import { type Request, type Response } from 'express';
 
 import { AuthSchema } from '@/models/auth/index.js';
 import * as s from '@/services/auth/index.js';
-import { endResponseWithCode, internalServerError } from '@/utils/http.js';
+import {
+  endResponseWithCode,
+  internalServerError,
+  sendJson,
+} from '@/utils/http.js';
 import logError from '@/utils/logError.js';
 
 const bodySchema = AuthSchema.omit({ _id: true });
@@ -35,7 +39,7 @@ const auth = async (req: Request, res: Response) => {
       return endResponseWithCode(res, 401);
     }
 
-    return endResponseWithCode(res, 200);
+    return sendJson(res, { token: authenticated.token });
   } catch (error) {
     logError({
       type: 'internal-server-error',

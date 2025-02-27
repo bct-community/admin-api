@@ -12,6 +12,7 @@ const envSchema = z.object({
   CLOUDINARY_API_KEY: z.string().nonempty(),
   CLOUDINARY_API_SECRET: z.string().nonempty(),
   CORS_ORIGIN: z.string().nonempty(),
+  JWT_SECRET_KEY: z.string().nonempty(),
 });
 
 export const env = envSchema.parse(process.env);
