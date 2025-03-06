@@ -12,7 +12,7 @@ const create = async ({
 
   const newRaid = new RaidModel({
     content,
-    parsedDate,
+    date: parsedDate,
     platform,
     shareMessage,
     url,
