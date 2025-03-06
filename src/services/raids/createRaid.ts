@@ -7,7 +7,16 @@ const create = async ({
   shareMessage,
   url,
 }: Omit<Raid, '_id'>) => {
-  const newRaid = new RaidModel({ content, date, platform, shareMessage, url });
+  const parsedDate = new Date(date);
+  parsedDate.setUTCHours(0, 0, 0, 0);
+
+  const newRaid = new RaidModel({
+    content,
+    parsedDate,
+    platform,
+    shareMessage,
+    url,
+  });
   return await newRaid.save();
 };
 
